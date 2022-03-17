@@ -11,8 +11,13 @@ class SIGCOMPCHINESE(IterableDataset):
     def __init__(self, path):
         self.path = path
 
+    @property
+    def maxsize(self):
+        return 235, 340
+
     def iter_genuine(self, path):
         """ Iterate through genuine signatures """
+        path = './Datasets/sigComp2011/trainingSet/Chinese'
 
         genuine_folder = os.path.join(self.path, 'Genuine')
         for i in genuine_folder:

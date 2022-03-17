@@ -8,10 +8,10 @@ class IterableDataset(ABC):
      the dataset (such as the number of signatures per user), as well as implement
      methods to iterate over the signatures of a user. """
 
-    # @property
-    # def maxsize(self):
-    #     """ Maximum size of the images in the dataset"""
-    #     raise NotImplementedError
+    @property
+    def maxsize(self):
+        """ Maximum size of the images in the dataset"""
+        raise NotImplementedError
     #
     # @property
     # def genuine_per_user(self):
