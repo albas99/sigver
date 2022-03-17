@@ -8,7 +8,7 @@ class SIGCOMPCHINESE(IterableDataset):
     """ Helper class to load SigComp Chinese Dataset
     """
 
-    def __init__(self, path):
+    def __init__(self, path='./Datasets/sigComp2011/trainingSet/Chinese'):
         self.path = path
 
     @property
@@ -17,8 +17,7 @@ class SIGCOMPCHINESE(IterableDataset):
 
     def iter_genuine(self, path):
         """ Iterate through genuine signatures """
-        path = './Datasets/sigComp2011/trainingSet/Chinese'
-
+        
         genuine_folder = os.path.join(self.path, 'Genuine')
         for i in genuine_folder:
             full_path = os.path.join(genuine_folder, i)
