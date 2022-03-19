@@ -35,7 +35,7 @@ def process_dataset(dataset: IterableDataset,
 
     """
     preprocess_fn = functools.partial(preprocess_signature,
-                                      canvas_size=dataset.maxsize,
+                                      canvas_size=[235, 340],
                                       img_size=img_size,
                                       input_size=img_size) # Don't crop it now
 
