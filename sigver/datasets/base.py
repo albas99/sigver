@@ -12,26 +12,26 @@ class IterableDataset(ABC):
     def maxsize(self):
         """ Maximum size of the images in the dataset"""
         raise NotImplementedError
-    #
-    # @property
-    # def genuine_per_user(self):
-    #     """ Number of genuine signatures per user"""
-    #     raise NotImplementedError
-    #
-    # @property
-    # def skilled_per_user(self):
-    #     """ Number of skilled forgeries per user"""
-    #     raise NotImplementedError
-    #
-    # @property
-    # def simple_per_user(self):
-    #     """ Number of simple forgeries per user"""
-    #     raise NotImplementedError
-    #
-    # @abstractmethod
-    # def get_user_list(self) -> List[int]:
-    #     """ Returns the list of users in the dataset. """
-    #     pass
+
+    @property
+    def genuine_per_user(self):
+        """ Number of genuine signatures per user"""
+        raise NotImplementedError
+
+    @property
+    def skilled_per_user(self):
+        """ Number of skilled forgeries per user"""
+        raise NotImplementedError
+
+    @property
+    def simple_per_user(self):
+        """ Number of simple forgeries per user"""
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_user_list(self) -> List[int]:
+        """ Returns the list of users in the dataset. """
+        pass
 
     @abstractmethod
     def iter_genuine(self, path: str) -> Iterable[Tuple[np.ndarray, str]]:
