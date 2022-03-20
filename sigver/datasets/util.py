@@ -103,7 +103,7 @@ def process_dataset_images(dataset: IterableDataset,
 
     user_mapping = {}
 
-    users = dataset.get_user_list()
+#     users = dataset.get_user_list()
     users = users[subset]
     print('Number of users: %d' % len(users))
 
