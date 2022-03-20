@@ -7,3 +7,4 @@ sigver/featurelearning/.DS_Store
 sigver/featurelearning/models/.DS_Store
 sigver/preprocessing/.DS_Store
 .DS_Store
+sigver/datasets/test.py
