@@ -10,7 +10,7 @@ class SIGCOMPCHINESE(IterableDataset):
 
     def __init__(self, path='./Datasets/sigComp2011/trainingSet/Chinese'):
         self.path = path
-        self.users = list(range(1, 10))
+        self.users = list(range(1, 10+1))
 
     @property
     def genuine_per_user(self):
