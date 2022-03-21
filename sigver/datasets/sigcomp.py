@@ -26,7 +26,7 @@ class SIGCOMPCHINESE(IterableDataset):
     def get_user_list(self):
         return self.users
 
-    def iter_genuine(self, path):
+    def iter_genuine(self, user):
         """ Iterate through genuine signatures """
         #
         genuine_folder = os.path.join(self.path, 'Genuine')
@@ -36,7 +36,7 @@ class SIGCOMPCHINESE(IterableDataset):
             img = imread(full_path, as_gray=True)
             yield img_as_ubyte(img), i
 
-    def iter_forgery(self, path):
+    def iter_forgery(self, user):
         """ Iterate over forgeries """
         forge_folder = os.path.join(self.path, 'Forgeries')
         files = ['{}_{}'.format(user, img) for img in range(1, 12)]
