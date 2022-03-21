@@ -10,7 +10,7 @@ class SIGCOMPCHINESE(IterableDataset):
 
     def __init__(self, path='./Datasets/sigComp2011/trainingSet/Chinese', extension='png'):
         self.path = path
-        # self.users = [int(float(user) for user in os.listdir(self.path))]
+        self.users = [int(float(user) for user in sorted(os.listdir(self.path)))]
         self.extension = extension
 
     # @property
