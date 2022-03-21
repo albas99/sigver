@@ -8,7 +8,7 @@ class SIGCOMPCHINESE(IterableDataset):
     """ Helper class to load SigComp Chinese Dataset
     """
 
-    def __init__(self, path='./Datasets/sigComp2011/trainingSet/Chinese' extension='.png'):
+    def __init__(self, path='./Datasets/sigComp2011/trainingSet/Chinese', extension='.png'):
         self.path = path
         self.users = list(range(1, 10+1))
         self.extension = extension
