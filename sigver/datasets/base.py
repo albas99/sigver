@@ -19,14 +19,14 @@ class IterableDataset(ABC):
         raise NotImplementedError
 
     @property
-    def skilled_per_user(self):
+    def forged_per_user(self):
         """ Number of skilled forgeries per user"""
         raise NotImplementedError
 
-    @property
-    def simple_per_user(self):
-        """ Number of simple forgeries per user"""
-        raise NotImplementedError
+#     @property
+#     def simple_per_user(self):
+#         """ Number of simple forgeries per user"""
+#         raise NotImplementedError
 
     @abstractmethod
     def get_user_list(self) -> List[int]:
