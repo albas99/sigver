@@ -111,7 +111,7 @@ def process_dataset_images(dataset: IterableDataset,
     # the alternative of concatenating several arrays in the end takes
     # a lot of memory, which can be problematic when using large image sizes
     H, W = img_size
-    max_signatures = len(users) * (dataset.genuine_per_user + dataset.skilled_per_user + dataset.simple_per_user)
+    max_signatures = len(users) * (dataset.genuine_per_user + dataset.forged_per_user)
 
     x = np.empty((max_signatures, H, W), dtype=np.uint8)
     y = np.empty(max_signatures, dtype=np.int32)
@@ -151,20 +151,20 @@ def process_dataset_images(dataset: IterableDataset,
             N += new_img_count
 
         # Simple forgeries
-        user_forg_data = [(preprocess_fn(img), filename) for (img, filename) in dataset.iter_simple_forgery(user)]
+#         user_forg_data = [(preprocess_fn(img), filename) for (img, filename) in dataset.iter_simple_forgery(user)]
 
-        if len(user_forg_data) > 0:
-            forg_imgs, forg_filenames = zip(*user_forg_data)
-            new_img_count = len(forg_imgs)
+#         if len(user_forg_data) > 0:
+#             forg_imgs, forg_filenames = zip(*user_forg_data)
+#             new_img_count = len(forg_imgs)
 
-            indexes = slice(N, N + new_img_count)
-            x[indexes] = forg_imgs
-            yforg[indexes] = 2  # Simple forgeries
-            y[indexes] = i
-            used_files += forg_filenames
-            N += new_img_count
+#             indexes = slice(N, N + new_img_count)
+#             x[indexes] = forg_imgs
+#             yforg[indexes] = 2  # Simple forgeries
+#             y[indexes] = i
+#             used_files += forg_filenames
+#             N += new_img_count
 
-        user_mapping[i] = user
+#         user_mapping[i] = user
 
     if N != max_signatures:
         # Some users had less signatures than expected. shrink the arrays
