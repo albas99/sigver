@@ -8,17 +8,16 @@ class SIGCOMPCHINESE(IterableDataset):
     """ Helper class to load SigComp Chinese Dataset
     """
 
-    def __init__(self, path='./Datasets/sigComp2011/trainingSet/Chinese', extension='png'):
+    def __init__(self, path='./Datasets/sigComp2011/trainingSet/Chinese'):
         self.path = path
-        self.users = [string(int(float(user) for user in sorted(os.listdir(self.path))))]
-        self.extension = extension
+        self.users = list(range(1, 10))
 
-    # @property
-    # def genuine_per_user(self):
-    #     return
-    # @property
-    # def forged_per_user(self):
-    #     return
+    @property
+    def genuine_per_user(self):
+        return 24
+    @property
+    def forged_per_user(self):
+        return 12
 
     @property
     def maxsize(self):
@@ -31,7 +30,7 @@ class SIGCOMPCHINESE(IterableDataset):
         """ Iterate through genuine signatures """
         #
         genuine_folder = os.path.join(self.path, 'Genuine')
-        # files = ['{}'.format()]
+        files = ['{}_{}'.format(user, img) for img in range(1, 24)]
         for i in genuine_folder:
             full_path = os.path.join(genuine_folder, i)
             img = imread(full_path, as_gray=True)
@@ -40,7 +39,7 @@ class SIGCOMPCHINESE(IterableDataset):
     def iter_forgery(self, path):
         """ Iterate over forgeries """
         forge_folder = os.path.join(self.path, 'Forgeries')
-        # files = ['{}'.format()]
+        files = ['{}_{}'.format(user, img) for img in range(1, 12)]
         for i in forge_folder:
             full_path = os.path.join(forge_folder, i)
             img = imread(full_path, as_gray=True)
